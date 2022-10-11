@@ -1,15 +1,14 @@
-import React, { useReducer } from "react";
+import React, { FC, useReducer } from "react";
 import ReactDOM from "react-dom/client";
 
-/*interface Todo {
+interface State {
     id: number,
     title: string,
     complete: boolean,
 
 }
 
-
-const initialTodos  = [
+const initialTodos:State[]  = [
     {
         id: 1,
         title: "Todo 1",
@@ -22,7 +21,7 @@ const initialTodos  = [
     },
 ];
 
-const reducer = (state: SelectedItemState, action) => {
+const reducer = (state: State, action) => {
     switch (action.type) {
         case "COMPLETE":
             return state.map((todo) => {
