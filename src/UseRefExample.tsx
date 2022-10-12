@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, FC } from "react";
 import ReactDOM from "react-dom/client";
 import { text } from "stream/consumers";
 
-const useRefExample:FC = () => {
+const UseRefExample:FC = () => {
     const [inputValue, setInputValue] = useState("");
     const count = useRef(0);
 
