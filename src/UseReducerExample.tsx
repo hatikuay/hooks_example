@@ -1,15 +1,14 @@
-import React, { useReducer } from "react";
+import React, { FC, useReducer } from "react";
 import ReactDOM from "react-dom/client";
 
-/*interface Todo {
-    id: number,
-    title: string,
-    complete: boolean,
+export interface Todo {
+    id?: number,
+    title?: string,
+    complete?: boolean,
 
 }
 
-
-const initialTodos  = [
+const initialTodos:Todo[]  = [
     {
         id: 1,
         title: "Todo 1",
@@ -22,10 +21,10 @@ const initialTodos  = [
     },
 ];
 
-const reducer = (state: SelectedItemState, action) => {
+const reducer = (state: any, action: any) => {
     switch (action.type) {
         case "COMPLETE":
-            return state.map((todo) => {
+            return state.map((todo:Todo) => {
                 if (todo.id === action.id) {
                     return { ...todo, complete: !todo.complete };
                 } else {
@@ -37,16 +36,16 @@ const reducer = (state: SelectedItemState, action) => {
     }
 };
 
-function Todos() {
+const Todos:FC<Todo> = (params:any) => {
     const [todos, dispatch] = useReducer(reducer, initialTodos);
 
-    const handleComplete = (todo) => {
+    const handleComplete = (todo:Todo) => {
         dispatch({ type: "COMPLETE", id: todo.id });
     };
 
     return (
         <>
-            {todos.map((todo) => (
+            {todos.map((todo:Todo) => (
                 <div key={todo.id}>
                     <label>
                         <input
@@ -60,4 +59,6 @@ function Todos() {
             ))}
         </>
     );
-}*/
+}
+
+export default Todos

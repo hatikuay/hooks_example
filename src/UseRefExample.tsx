@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, FC } from "react";
 import ReactDOM from "react-dom/client";
 import { text } from "stream/consumers";
 
-const UseRefExample = () => {
+const useRefExample:FC = () => {
     const [inputValue, setInputValue] = useState("");
     const count = useRef(0);
 
@@ -23,10 +23,10 @@ const UseRefExample = () => {
 }
 
 
-export const Focus = () => {
+export const Focus:FC  = () => {
     const inputElement = useRef<HTMLInputElement | null>(null);
 
-    const focusInput = () => {
+    const focusInput  = () => {
         if (inputElement.current) {
             inputElement.current.focus();
         }
@@ -40,7 +40,7 @@ export const Focus = () => {
     );
 }
 
-export const Tracking = () => {
+export const Tracking:FC  = () => {
     const [inputValue, setInputValue] = useState("");
     const previousInputValue = useRef("");
 
