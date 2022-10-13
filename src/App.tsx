@@ -2,6 +2,7 @@ import React, { FC, useState, useCallback, useEffect, useRef, useMemo, useReduce
 import logo from "./logo.svg";
 import "./App.css";
 import Greeting from "./GrettingFunctional";
+import ListCreator, { ListItems, ListItem } from "./ListCreator";
 
 
 const reducer = (state: any, action: any) => {
@@ -31,6 +32,7 @@ const App: FC = () => {
   const [{ message, enteredName }, dispatch] = useReducer(reducer, initialState);
   const [count, setCount] = useState(0);
   const [startCount, setStartCount] = useState(0);
+  const [listItems, setListItems] = useState<Array<ListItem>>();
 
   const setCountCallback = useCallback(() => {
     const inc = count + 1 > startCount ? count + 1 : Number(count + 1) + startCount;
@@ -47,6 +49,16 @@ const App: FC = () => {
     setStartCount(Number(e.target.value));
   }
 
+
+  useEffect(() => {
+    const li = [];
+    for (let i = 0; i < count; i++) {
+      li.push({ id: i })
+    }
+    setListItems(li);
+
+  }, [count])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -59,6 +71,9 @@ const App: FC = () => {
           <label>{count}</label>
           <br></br>
           <button onClick={onIcrementBtnClick}>Increment Button</button>
+        </div>
+        <div>
+          <ListCreator listItems={listItems}></ListCreator>
         </div>
       </header>
     </div>
