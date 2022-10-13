@@ -19,6 +19,11 @@ const initialTodos:Todo[]  = [
         title: "Todo 2",
         complete: false,
     },
+    {
+        id: 3,
+        title: "Todo 3",
+        complete: false,
+    },
 ];
 
 const reducer = (state: any, action: any) => {
@@ -37,6 +42,7 @@ const reducer = (state: any, action: any) => {
 };
 
 const Todos:FC<Todo> = (params:any) => {
+    
     const [todos, dispatch] = useReducer(reducer, initialTodos);
 
     const handleComplete = (todo:Todo) => {
